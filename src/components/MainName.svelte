@@ -6,6 +6,45 @@
   onMount(() => ready = true);
 </script>
 
+<style>
+	.name {
+		font-size: 6rem;
+		line-height: 6rem;
+	}
+	@media(min-width: 640px) {
+		.name {
+			font-size: 10rem;
+			line-height: 10rem;
+		}
+	}
+	@media(min-width: 768px) {
+		.name {
+			font-size: 12rem;
+			line-height: 12rem;
+		}
+	}
+	@media(min-width: 1024px) {
+		.name {
+			font-size: 8rem;
+			line-height: 8rem;
+		}
+	}
+	@media(min-width: 1280px) {
+		.name {
+			font-size: 10rem;
+			line-height: 10rem;
+		}
+	}
+
+	@media(min-width: 1536px) {
+		.name {
+			font-size: 12rem;
+			line-height: 12rem;
+		}
+	}
+
+</style>
+
 <div id="mainName" class="screen-height lg:w-1/2 w-full left-0">
 	{#if ready}
 	<div
