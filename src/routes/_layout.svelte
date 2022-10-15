@@ -21,6 +21,24 @@
 	.font-lato {
 		font-family: 'Lato';
 	}
+	.screen-height {
+		height: calc(100vh - 3.5rem);
+		height: calc(-webkit-fill-available - 3.5rem);
+	}
+	@media (min-width: 768px) {
+		.screen-height {
+			height: calc(100vh - 4rem);
+			height: calc(-webkit-fill-available - 4rem);
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.screen-height {
+			height: calc(100vh - 4.5rem);
+			height: calc(-webkit-fill-available - 4.5rem);
+		}
+	}
+
 </style>
 
 <body>
