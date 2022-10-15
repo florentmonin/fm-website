@@ -1,6 +1,7 @@
 <script>
 
     import MainName from "../components/MainName.svelte";
+    import Whoami from "../components/Whoami.svelte";
 	let name = "Florent Monin"
 </script>
 
@@ -10,4 +11,5 @@
 
 <div class="flex lg:flex-row flex-col lg:place-content-center bg-sky">
 	<MainName/>
+	<Whoami/>
 </div>
