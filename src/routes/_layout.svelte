@@ -1,7 +1,10 @@
 <script>
+    import { onMount } from 'svelte';
 	import Nav from '../components/Nav.svelte';
 	export let segment;
 
+	let ready = false
+	onMount(() => {ready=true})
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,11 +24,13 @@
 </style>
 
 <body>
+	{#if ready}
 	<Nav {segment}/>
 
 	<main>
 		<slot></slot>
 	</main>
+	{/if}
 </body>
 <!-- TODO: add footer
 w/ links to Github, linkedin (,etc?)
