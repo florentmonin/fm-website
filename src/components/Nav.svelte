@@ -1,18 +1,11 @@
 <script>
+    import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
+    import Hamburger from './Hamburger.svelte';
+    import Menu from './Menu.svelte';
+    import SideMenu from './SideMenu.svelte';
 	export let segment;
-</script>
-
-<style>
-	nav {
-		border-bottom: 1px solid rgba(255,62,0,0.1);
-		font-weight: 300;
-		padding: 0 1em;
-	}
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
+	export let open = false;
 
 	/* clearfix */
 	ul::after {
@@ -31,20 +24,15 @@
 		display: inline-block;
 	}
 
-	[aria-current]::after {
-		position: absolute;
-		content: '';
-		width: calc(100% - 1em);
-		height: 2px;
-		background-color: rgb(255,62,0);
-		display: block;
-		bottom: -1px;
-	}
+</script>
 
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
+<style>
+	#navbar {
+		transform: translateY(0%);
+		transition: transform 0.3s ease-in-out
+	}
+	#navbar.hiddensidebar {
+		transform: translateY(-100%);
 	}
 </style>
 
@@ -53,8 +41,16 @@
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
 		<li><a aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
 
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch aria-current="{segment === 'blog' ? 'page' : undefined}" href="blog">blog</a></li>
-	</ul>
+<nav id="navbar" in:fade={{y:-100, duration: 500}}
+	class="sticky w-full z-50 top-0
+	bg-stone-dark text-white font-lato font-extrabold
+	overflow-x-hidden"
+	>
+	<div class="lg:flex hidden h-18 flex-row space-x-3 justify-end p-3 lg:text-2xl items-center">
+		<Menu bind:segment/>
+	</div>
+	<div class="lg:hidden flex flex-row space-x-3 justify-end p-3 md:h-16 h-14 items-center">
+		<Hamburger bind:open/>
+		<SideMenu bind:segment bind:open/>
+	</div>
 </nav>
