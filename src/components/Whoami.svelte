@@ -87,6 +87,12 @@
     });
 </script>
 
+<style>
+    .animate-vibe {
+        transition: transform 0.3s ease-in-out;
+    }
+</style>
+
 <div class="lg:left-1/2 z-0 lg:w-1/2 w-full lg:absolute bg-sky screen-height">
     <div bind:this={words} class="relative screen-height shadow-custom" id="words">
         <div class="">
