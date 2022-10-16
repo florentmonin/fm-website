@@ -4,7 +4,7 @@
 	export let open = false;
 </script>
 
-<div id="sidebar" class="fixed top-0 right-0 z-0 w-auto h-screen bg-stone-dark md:pt-20 pt-16 space-y-2 text-xl px-6" class:open>
+<div id="sidebar" class="fixed top-0 right-0 z-0 w-auto h-screen bg-stone-dark opacity-80 md:pt-20 pt-16 space-y-2 text-xl px-6" class:open>
 	<Menu bind:segment/>
 </div>
 
@@ -14,7 +14,8 @@
 	}
     #sidebar {
 		transform: translateX(100%);
-		transition: transform 0.3s ease-in-out
+		transition: transform 0.3s ease-in-out;
+		box-shadow: -0.5rem 0 1rem 1rem rgba(52, 62, 70, 1);
 	}
 </style>
 
