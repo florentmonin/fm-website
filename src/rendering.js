@@ -24,12 +24,13 @@ export function collide(
     {"word1": {"x": x1, "y": y1, "w": w1, "h": h1},
     "word2": {"x": x2, "y": y2, "w": w2, "h": h2}},
     padding,
-    padding_left,
+    paddingLeft,
+    paddingTop,
 ) {
-    if (x1<padding_left) {
+    if (x1<paddingLeft) {
         return true
     }
-    if (y1<padding) {
+    if (y1<paddingTop) {
         return true
     }
 
@@ -94,9 +95,17 @@ export function translate_words(wordSizes, CentersOfInterest, firstTime) {
         place word, and save position
     */
     let fold1 = document.getElementById("fold1")
-    let ml = window.getComputedStyle(fold1, null)['margin-left']
-    let padding_left = parseInt(ml.replace(/\D/g, ""))*1.1
-    console.log(padding_left)
+    let fold4 = document.getElementById("fold4")
+    let paddingLeft = (
+        parseInt(window.getComputedStyle(fold1, null).width)
+        - parseInt(window.getComputedStyle(fold4, null).width)
+    )
+    let paddingTop = (
+        parseInt(window.getComputedStyle(fold1, null).width)
+        - parseInt(window.getComputedStyle(fold4, null).width)
+    )
+    paddingLeft = window.innerWidth >= 1024 ? paddingLeft : 0
+    paddingTop = window.innerWidth < 1024 ? paddingTop : 0
     let words = document.getElementById("words")
     let totalHeight = words.offsetHeight;
     let totalWidth = words.offsetWidth;
@@ -121,7 +130,7 @@ export function translate_words(wordSizes, CentersOfInterest, firstTime) {
             let found_collision = false
             for (let j = 0; j < i; j++) {
                 const word2 = wordSizes[CentersOfInterest[j]];
-                if (collide({"word2": word2, "word1": word1}, padding, padding_left)) {
+                if (collide({"word2": word2, "word1": word1}, padding, paddingLeft, paddingTop)) {
                     found_collision = true
                     break
                 }
