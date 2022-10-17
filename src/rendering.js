@@ -95,17 +95,19 @@ export function translate_words(wordSizes, CentersOfInterest, firstTime) {
         place word, and save position
     */
     let fold1 = document.getElementById("fold1")
+    let shadow = window.getComputedStyle(fold1).boxShadow
     let fold4 = document.getElementById("fold4")
     let paddingLeft = (
-        parseInt(window.getComputedStyle(fold1, null).width)
-        - parseInt(window.getComputedStyle(fold4, null).width)
+        parseInt(window.getComputedStyle(fold1).width)
+        - parseInt(window.getComputedStyle(fold4).width)
     )
     let paddingTop = (
-        parseInt(window.getComputedStyle(fold1, null).width)
-        - parseInt(window.getComputedStyle(fold4, null).width)
-    )
+        parseInt(window.getComputedStyle(fold1).width)
+        - parseInt(window.getComputedStyle(fold4).width)
+    ) + parseInt(shadow.split(" ").slice(-1)[0])  // Get size of shadow
     paddingLeft = window.innerWidth >= 1024 ? paddingLeft : 0
     paddingTop = window.innerWidth < 1024 ? paddingTop : 0
+    console.log(paddingLeft, paddingTop)
     let words = document.getElementById("words")
     let totalHeight = words.offsetHeight;
     let totalWidth = words.offsetWidth;
