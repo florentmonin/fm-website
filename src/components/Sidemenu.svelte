@@ -13,7 +13,7 @@
 		transform: translateX(0%);
 	}
     #sidebar {
-		transform: translateX(100%);
+		transform: translateX(120%);
 		transition: transform 0.3s ease-in-out;
 		box-shadow: -0.5rem 0 1rem 1rem rgba(52, 62, 70, 1);
 	}
