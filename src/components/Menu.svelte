@@ -6,6 +6,7 @@
 
 <div class="
     hover:border-2 hover:bg-white hover:text-stone-dark rounded-lg
+    xl:text-2xl lg:text-xl md:text-4xl text-2xl
     p-1 px-4
     {segment === undefined ? 'font-extrabold' : 'font-normal'}
 ">
@@ -13,6 +14,7 @@
 </div>
 <div class="
     hover:border-2 hover:bg-white hover:text-stone-dark rounded-lg
+    xl:text-2xl lg:text-xl md:text-4xl text-2xl
     p-1 px-4
     {segment === 'projects' ? 'font-extrabold' : 'font-normal'}
 ">
@@ -20,6 +22,7 @@
 </div>
 <div class="
     hover:border-2 hover:bg-white hover:text-stone-dark rounded-lg
+    xl:text-2xl lg:text-xl md:text-4xl text-2xl
     p-1 px-4
     {segment === 'contact' ? 'font-extrabold' : 'font-normal'}
 ">
