@@ -28,7 +28,7 @@
 			Skills
 		</div>
 	</div> -->
-	<div class="text-9xl text-cocoa font-bebas pl-20 py-10">
+	<div class="text-9xl text-stone-dark font-bebas pl-20 py-20">
 			Skills
 	</div>
 </div>
